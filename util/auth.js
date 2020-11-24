@@ -86,34 +86,4 @@ function Business_number_inspection(request, response, next){
     .catch( err => { return response.status(400).json("Err : " + err)})
 }
 
-function getPRIV(req, res, next){
-    const token = req.headers.authorization.split('Bearer ')[1];
-    const decoded = jwt.verify(token, process.env.jwtSecret);
-    if(!req.body.password){
-        return res.status(400).json("Err : " + "Not entered password")
-    }
-    User.findOne({ userid: decoded.id })
-    .then((user) =>{
-        bcrypt
-            .compare(req.body.password, user.password)
-            .then((isMatch) => {
-                if(!isMatch){
-                     return res.status(400).json("wrong password");
-                }else{
-                    const PRIV = process.env.SERVER_PRIV.replace(new RegExp('\\\\n', '\g'), '\n');
-                    aesE_privateKey = crypto.privateDecrypt(PRIV, Buffer.from(user.eos_privatekey, 'base64'));
-
-                    const decipher = crypto.createDecipher('aes-256-cbc', req.body.password);
-                    var privateKey = decipher.update(aesE_privateKey.toString('base64'), 'base64', 'utf8');
-                    privateKey += decipher.final('utf8');       
-                    
-                    req.body.key = privateKey;
-                    next();
-                }
-    //console.log(eos_config.keyProvider);
-            }).catch(err => { return res.status(400).json("err : " + err)});
-    }).catch(err => { return res.status(400).json("err : " + err)});
-}
-
-
 module.exports = {auth, phone_auth, getPRIV, Business_number_inspection};
