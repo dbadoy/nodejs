@@ -1,2 +1,2 @@
 
-email : dbadoy4874@gmail.com
+E-mail : dbadoy4874@gmail.com
