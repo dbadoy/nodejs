@@ -28,5 +28,5 @@ axios({
     myData = myData.split(" ");
 
     console.log(myData[8] , myData[10], myData[11])
-
+     // 5068100017 포스코 최정우
     })
