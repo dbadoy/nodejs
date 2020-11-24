@@ -1,2 +1,0 @@
-# eosjs
-nodejs, eosjs  
