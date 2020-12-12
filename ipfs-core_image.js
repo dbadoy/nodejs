@@ -15,7 +15,7 @@ router.post('/set', async(req, res) =>{
 // example
 // cid = QmeW2bYmXsu3pnSTpRCEwqyoE8pa2oaH6eW7qfiz4qbahn
 // https://ipfs.io/ipfs/QmeW2bYmXsu3pnSTpRCEwqyoE8pa2oaH6eW7qfiz4qbahn
-// The text is uploaded. Not an image
+// The String(base64) is uploaded. Not an image
 
 
 // solution
