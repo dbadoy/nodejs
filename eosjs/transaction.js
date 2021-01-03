@@ -30,12 +30,15 @@ function myTx() {
                         //.
                         // example
                         user: "examaccount1",
-                        from: "examaccount2",
+                        phonenum: 00000000000,
                     },
                     authorization: [{
                         actor: [ACCOUNT_NAME],
                         permission: "[active / owner ]"
                     }]
                 }]
+            })
+            .catch( err => { 
+                console.log("Error (eos.transaction) ! : " + err);
             })
 }
