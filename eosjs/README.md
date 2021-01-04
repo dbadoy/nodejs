@@ -1,4 +1,4 @@
-etc
+tc
 ===
 
 ### eos_config.keyProvider.push(privatekey);
