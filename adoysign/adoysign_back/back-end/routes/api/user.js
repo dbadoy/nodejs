@@ -96,8 +96,8 @@ router.post("/register", async (request, response) => {
                                                         service: 'gmail',////
                                                         auth: {
                                                             user: 'adoysign@gmail.com',////
-                                                            pass: 'wttqdnakubwfppfl'////adoyTkdls!2
-                                                        } //wttqdnakubwfppfl
+                                                            pass: ------------------
+                                                        } //--------------------
                                                     });
                                                     const verificationLink = process.env.deploymentURL + 'user/verifyemail/' + user.key_for_verify
         
