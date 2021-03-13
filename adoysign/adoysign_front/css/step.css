@@ -1,0 +1,22 @@
+
+.step-heading {
+    height: 33px;
+    padding-bottom: 50px;
+    cursor: pointer;
+}
+.step:last-child .step-heading {
+    padding-bottom: 0;
+}
+.step-heading > a:hover {
+    text-decoration: none;
+}
+.step-heading .num {
+    width: 32px;
+    height: 32px;
+}
+.steps .step .line {
+    border-left: 1px solid #333;
+    left: 16px;
+    bottom: 0px;
+    top: 32px;
+}

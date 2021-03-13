@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+ <!--<script>
+    if(!localStorage.getItem("id")){
+      window.location.href='index.html';
+    } // 완료시 지우기
+  </script>--> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Scrolling Nav - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script type="text/javascript" src="./js/certifibox.js"></script>
+  
+  <link rel="stylesheet" href="./css/userPage.css">
+ 
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="index_login.html">Alibi</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#NFT">NFT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="writecert.html">계약서</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="userPage.html" style="color: white;">내 정보</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="#" onclick="logout();">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+  <section id="about" style="text-align: center;">
+    <div class="mydata_nav">
+    </div>
+    </div>
+    <p title="aaa"></p>
+    <div class="container">
+        <script>
+            let data = location.search.substr(location.search.indexOf("?") + 1);
+            data = data.split("=")[1];
+           //계약서 내용 가져와서 채우기 
+            let target;
+            getCertnum(data)
+            .then(res =>{
+                if(res.status < 2){ 
+                  document.getElementById("signbutton").disabled = false;
+                  document.getElementById("retirebutton").disabled = true;
+                  document.getElementById("nftbutton").disabled = true;
+                }
+                else if(res.status == 2 || res.status == 3){ 
+                  document.getElementById("retirebutton").disabled = false;
+                  document.getElementById("signbutton").disabled = false;
+                  document.getElementById("nftbutton").disabled = true;
+                }
+                else if(res.status == 4) { 
+                  document.getElementById("nftbutton").disabled = false;
+                  document.getElementById("retirebutton").disabled = true;
+                  document.getElementById("signbutton").disabled = true;
+                }
+
+                document.getElementById("n").innerText=res.certT.certifinum;
+                
+                document.getElementById("a").innerText=res.certT.user;
+                document.getElementById("b").innerText=res.certT.target;
+                document.getElementById("c").innerText=res.certT.company;
+              
+                document.getElementById("d").innerText=res.certT.start_date;
+                document.getElementById("e").innerText=res.certT.end_date;
+                document.getElementById("f").innerText=res.Rec.retire_date;
+
+                document.getElementById("certstat").innerText=statusParse(res.status)
+
+                
+                target = res.certT.target;
+                const ul = document.getElementById("contentUL");
+
+                const my_contents = res.certT.contents[0].split('\n');
+                createContents(my_contents.length, my_contents)         
+            })
+
+            
+
+            
+
+        </script>
+
+        <div class= "certification">
+            <div style="background-color: gainsboro; border-radius: 5px;"> 
+              <a style="text-align: center; display: inline-block;height: auto;">번호 : </a><a id="n"></a>
+            </div>
+            <div style="width: auto; height: auto; background-color: white; text-align: left;">
+               
+               <a style="text-align: left;"> 고용인 :</a><a id="a">...</a>
+               <a style="text-align: left;margin-left: 350px;">피고용인 :</a><a ></a><a id="b"></a><br>
+               <hr>
+                <a style="text-align: left;">회사 : </a><a id="c"></a><br>
+                <hr>
+                <a style="text-align: left;">계약기간 : </a><a id="d">  </a> ~ <a id="e"></a><br>
+                <a style="text-align: left;">퇴직일 : </a> <a id="f">  </a><br>
+                <hr>
+                <a style="text-align: left;">세부내용 : </a> 
+                <ul id="contentUL">
+                </ul>
+
+               <div>
+                <a>계약서 상태 : </a><a id="certstat"></a>
+               </div>
+               
+               <div style="margin-top:10px; display: none" id="sign_div">
+                <hr>
+                <a>프라이빗키 : </a><input type="password" style="border-radius: 5px;" id="privKey"><button onclick="signbtn()">서명</button>
+                <hr>
+              </div>
+                      
+            </div>
+            
+            <button onclick="document.getElementById(`sign_div`).style.display= `block`" id="signbutton"  disabled>서명하기</button>
+            <button id="retirebutton" disabled  >퇴직일 입력</button>
+            <button id="nftbutton" disabled >NFT 생성</button>
+            
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="background-color: #f9f8f8;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Services we offer</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

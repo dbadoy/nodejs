@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    if(!localStorage.getItem("id")){
+      window.location.href='index.html';
+    } // 완료시 지우기
+    if(localStorage.getItem("resgister")){
+      localStorage.removeItem("register");
+    }
+    if(localStorage.getItem("certification")){
+      localStorage.removeItem("certification");
+    }
+  </script>
+ 
+  
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Scrolling Nav - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script type="text/javascript" src="./js/write.js"></script>
+  <link rel="stylesheet" href="./css/userPage.css">
+
+
+
+  <script>
+    function logout(){
+    const userid = localStorage.getItem("id");
+
+    if(localStorage.getItem(userid)){
+        localStorage.removeItem(userid);
+        localStorage.removeItem("id");
+        alert(" 로그아웃 완료 !");
+        window.location.href="index.html"
+    }else{
+        alert("로그인부터 하세요");
+        window.location.href="index.html"
+    }
+  }
+  </script>
+ 
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="index_login.html">Alibi</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#NFT">NFT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index_login.html#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="#" style="color: white;">계약서</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="userPage.html" >내 정보</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="#" onclick="logout();">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="bg-primary text-white" style="background-image:url(./image//ab1.PNG)">
+    <div class="container text-center" style="margin-bottom: 5px;">
+      <h1>새 계약서 작성</h1>
+      <p class="lead"></p>
+    </div>
+  </header>
+ 
+  <section id="about" style="text-align: center;">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto"  style=
+        "background-color: white; border-radius: 6px;">
+        <div style="display: block;" id="firstDiv"> <!-- 완료시 none / 처음에는 block -->
+            <br>
+            <a style="font-weight: bold;">새 계약서 작성</a>
+            <hr>
+            <button class="pt">?</button>
+            <p class="arrow_box">계약서는 회사측에서 생성 가능합니다. 사업자 등록번호를 먼저 인증해주세요. </p>
+            <a>사업자 등록번호 : </a> <input type="text" id="verify_RN"  style="border-radius: 5px;"> <button style="border:none; border-radius: 5px;" onclick="check()">인증</button>
+            <hr>
+        </div>
+        <div style="display: none;" id="comInfo"> <!--none-->
+            <ul style="list-style: none;">
+                <li style="float: left; margin-left: 80px;">사업자 등록번호 : <p id="regNum">  </p></li>
+                <li style="float: left; margin-left: 80px;">사업체 이름 : <p id="comName">  </p></li>
+                <li style="float: left; margin-left: 80px;">대표명 : <p id="CEOName">  </p></li>
+            </ul>
+            <br>
+            <div style="width: auto; height: auto; margin-top: 10px;">
+              <button style="border-radius: 5px; margin-right: 130px;" onclick="startWrite()">맞습니다</button> 
+              <button style="border-radius: 5px; " onclick="confirm_no()">아닙니다</button> 
+            </div>
+            <hr>
+        </div> 
+
+        <div style="display : none; width: auto; height: auto;" id="write_div">
+          <p style="font-weight: bold;">계약서 작성</p>
+          <hr>
+          <div style="text-align: left;">
+            고용인 : <input type="text" id="userid"> 　　　　　　피고용인 : <input type="text" id="targetid" > <button style="border-radius: 10px;" onclick="checkid()">확인</button>
+            <hr>
+            회사명 : <input type="text" id="comid"> 　　　　　　세부사항 : <input type="text" id="tmp" value="테스트중" >　
+            <hr>
+            시작일 : <input type="text" id="start_date"> 　　　  　　 　  종료일 : <input type="text" id="end_date">
+            <hr>
+            계약내용 : <br>
+            <textarea style="width: 700px; height: 320px; margin-left: 10px;" id="contents"></textarea>
+            <div style="margin-top: 10px;">
+            고용인 서명 : <input type="password" id="privkey" style="border-radius: 10px;">
+
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+              <button style="border-radius: 10px; width: 300px;" onclick="register()">등록</button>
+            </div>
+            
+          </div>
+          
+
+
+
+        </div>
+        
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="services" style="background-color: #f9f8f8;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Services we offer</h2>
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

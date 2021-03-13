@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.6, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script>
+    if(!localStorage.getItem("id")){
+        location.href = './checkdoc.html'
+    } 
+  </script>
+ 
+
+  <title>Signcode</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script type="text/javascript" src="../js/doc.js"></script>
+  <script>
+        function logout(){
+          const userid = localStorage.getItem("id");
+
+          if(localStorage.getItem(userid)){
+              localStorage.removeItem(userid);
+              localStorage.removeItem("id");
+              alert(" 로그아웃 완료 !");
+              window.location.href="../index.html"
+          }else{
+              alert("로그인부터 하세요");
+              window.location.href="../index.html"
+          }
+        
+          
+      }
+  </script>
+  
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/userPage.css">
+  
+ 
+  <!-- Custom styles for this template -->
+  <link href="../css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="../index_login.html">Adoysign</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index_login.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index_login.html#service">Blockchain</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index_login.html#ipfs">IPFS</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="../index_login.html#how">How</a>
+        </li> 
+        <li class="nav-item" id="per1">
+          <a class="nav-link js-scroll-trigger" href="../sign.html">서명</a>
+        </li>  
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="checkdoc.html"  style="color: white;">서명확인</a>
+          </li>
+          <li class="nav-item" id="per2">
+            <a class="nav-link js-scroll-trigeer" href="../userPage.html">내 정보</a>
+          </li>
+          <li class="nav-item" id="per4">
+            <a class="nav-link js-scroll-trigeer" href="#" onclick="logout();">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+ 
+  
+  <header class="bg-primary text-white" style="background-image:url(../image//ab1.PNG)">
+    <div class="container text-center" style="margin-bottom: 5px;">
+      <h1>서명확인</h1>
+    </div>
+  </header>
+
+  <script>
+    function reset(){
+      location.href='checkdoc_login.html'
+    }
+  </script>
+ 
+
+  <section id="about" style="text-align: center;">
+    <div id="input">
+      문서번호로 검색 : <input type="number" style="border-radius: 5px;" id="input_docnum">
+      <button style="border-radius: 5px;" onclick="checkSigns()">검색</button>
+    </div>
+    <div class="container" id="result" style="display: none; width: 750px;">
+        <hr><p id="docnum"></p><hr>
+        <div class="myData">
+            <a style="text-align: center;">　서명자</a><br>
+            <hr>
+            <p>　EOS Account　　　　　　signNum　　　　　　　　Signcode</p>
+            <hr>
+            <div class="data_box" >
+                 <ui id="exam">
+                 </ui>   
+            </div> 
+        </div>
+        <br>
+        <button style="border-radius: 5px;" onclick="reset()">확인</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="../js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

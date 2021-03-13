@@ -1,0 +1,47 @@
+.hashtest {
+    background-color: white;
+    border-radius: 5px;
+    width: 180px;
+    height: 340px; 
+    float: left; 
+    width: 20%; 
+    margin-left: 15px;
+    text-align: center; 
+}
+
+.menuli {
+    float: left;
+}
+.menudiv {
+    width: 500px; 
+    height:260px; 
+    background-color: rgb(156, 156, 156); 
+    border-radius: 10px;
+}
+
+.menudiv:hover {
+    opacity: 0.5;
+}
+.menudiv2 {
+    width: 1030px; 
+    height:260px;
+    background-color: rgb(156, 156, 156); 
+    margin-left: 40px;
+    border-radius: 10px;
+}
+.menudiv2:hover {
+    opacity: 0.5;
+}
+
+
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
+	.jm-font{
+		font-family: 'Noto Sans KR', sans-serif;
+        color: black;
+	}
+
+
+.page-top{
+    width: 100%;
+}

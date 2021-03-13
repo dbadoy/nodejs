@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Scrolling Nav - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="index.html#page-top">Adoysign</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="./index.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="./index.html#service">Blockchain</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="./index.html#ipfs">IPFS</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="./index.html#how">How</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="./signPage/checkdoc.html">서명확인</a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="login.html" style="color: white;">로그인</a>
+        </li>  
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white" style="background-image: url(./image/home-bg.jpg);">
+    <div class="container text-center">
+      <h1 style="font-weight: bold; color: black;">로그인</h1>
+      <p class="lead"style="font-weight: bold; color:black"></p>
+    </div>
+  </header>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script type="text/javascript" src="./js/login.js"></script>
+  <link rel="stylesheet" href="./css/login.css">
+  <section id="login" style="background-color: white; margin-top: 5px;">
+  
+    <div class="container" style="background-color: white; width: 450px;" >
+      <div class="row">
+        <div class="container text-center" style="width: auto;" >
+          <hr>
+          <div style="font-weight: bold;">
+            　아이디  : <input id="userid" style="margin-bottom: 10px;"><br>
+            비밀번호 : <input type="password" id="password">   
+          </div>
+          <div class="chk" style="width: 100%;">
+            <input type="checkbox" id="loginchk">
+            <label for="loginchk">자동로그인</label>
+          </div>
+          <div class="btnwrap" style="text-align: center;">
+            <a href="register.html">회원가입</a>
+            <input type="button" id="loginbtn" onclick="login();" value="로그인">
+          </div>
+          <div class="search">
+            <a href="#" style="color:black;">ID/PW찾기</a>
+            <hr>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

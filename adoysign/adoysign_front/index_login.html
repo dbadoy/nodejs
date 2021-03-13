@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <!-- <script>
+    if(!localStorage.getItem("id")){
+      window.location.href='index.html';
+    } // 완료시 지우기
+  </script>
+-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.4, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Scrolling Nav - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+  <script type="text/javascript" src="./js/login.js"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  
+
+</head>
+
+<body id="page-top">
+    
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Adoysign</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#service">Blockchain</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#ipfs">IPFS</a>
+          </li>
+          
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#how">How</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="sign.html">서명</a>
+        </li>  
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="./signPage/checkdoc.html">서명확인</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="userPage.html">내 정보</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="#" onclick="logout();">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white" style="background-image: url(./image/bg-masthead.jpg);">
+    <div class="container text-center">
+      <h1 style="font-weight: bold; color: rgb(255, 255, 255);">안녕하세요. Adoysign 입니다.</h1>
+      <p class="lead">전자서명의 새로운 방법을 제시합니다.</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>복잡한 서명방식</h2>
+          <p class="lead">전자서명 과정에서 불편함을 겪은 적이 있으신가요?</p>
+          <ul>
+            <li style="margin-top: 5px;">인증기관으로부터 인증서를 발급을 받아야합니다.</li>
+            <li style="margin-top: 5px;">키를 보관해야 하는 부담이 큽니다.</li>
+            <li style="margin-top: 5px;">3</li>
+            <li style="margin-top: 5px;">4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="service" style="background-color: yellow; height: auto;">
+    <div class="container" style="width: auto;">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Blockchain</h2>
+          <p class="lead" style="font-weight: bold;">문서와 서명에 대한 무결성 제공</p>
+          <p>블록체인에 등록된 문서들은 임의로 변경이 불가능합니다.</p>
+        </div>
+        <!--<div><img style="margin-top:15px; margin-left: 180px; border-radius: 15px;" src="./image/11.PNG"></div>-->
+  
+      </div>
+      <hr>
+      <div class="row" style="width: auto; margin-left: 90px;">
+        <div class="hashtest">
+          <a >계약서 1</a>
+          <textarea style="height: 80%;" id="area1" onkeyup="hashing(this)">입력해보세요.</textarea>
+        </div>
+        <div class="hashtest">
+          <a>계약서 2</a>
+          <textarea style="height: 80%;"id="area2" onkeyup="hashing(this)">입력해보세요.</textarea>
+        </div>
+        <div class="hashtest">
+          <a>계약서 3</a>
+          <textarea style="height: 80%;"id="area3" onkeyup="hashing(this)">입력해보세요.</textarea>
+        </div>
+        <div class="hashtest">
+          <a>계약서 4</a>
+          <textarea style="height: 80%;"id="area4" onkeyup="hashing(this)">입력해보세요.</textarea>
+        </div>
+      </div>
+      <hr>
+      <div style="margin-left: 105px;">
+      변경전 값 : <p style="display: inline-block;"id="origin">dd</p>
+      <br>
+      현재값 　 : <p style="display: inline-block;" id="now"></p>
+    </div>
+      <br><br><div style="text-align: center;"><p style="color: gray" > ※조금이라도 내용이 바뀌면 변경된 문서라는 것을 알 수 있습니다.</p></div>
+    </div>
+    <script>
+      const area1 = document.getElementById("area1");
+       const area2 = document.getElementById("area2");
+       const area3 = document.getElementById("area3");
+       const area4 = document.getElementById("area4");
+       document.getElementById("origin").innerText = CryptoJS.SHA256(area1.value + area2.value + area3.value + area4.value).toString();
+       document.getElementById("now").innerText = CryptoJS.SHA256(area1.value + area2.value + area3.value + area4.value).toString();
+   
+   </script>
+ 
+   <script>
+     function hashing(a){
+       const area1 = document.getElementById("area1");
+       const area2 = document.getElementById("area2");
+       const area3 = document.getElementById("area3");
+       const area4 = document.getElementById("area4");
+       
+       let total_text = "";
+       switch(a.id){
+           case "area1":
+              total_text = a.value + area2.value + area3.value + area4.value;
+             break;
+           case "area2":
+              total_text = area1.value + a.value + area3.value + area4.value;
+           case "area3":
+              total_text = area1.value + area2.value + a.value + area4.value;
+           case "area4":
+              total_text = area1.value + area2.value + area3.value + a.value;
+       }
+       console.log(total_text)
+       const myhash = CryptoJS.SHA256(total_text).toString()  ;
+       document.getElementById("now").innerText = myhash;     
+     }
+ 
+   </script>
+</section>
+  
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+  <section id="ipfs">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>IPFS</h2>
+          <p class="lead" style="font-weight: bold;">탈중앙화된 저장공간</p><br><br>
+          <img src="image/ipfss.png" >
+          <br><br>
+          <p class="jm-font" style="font-size: 18px;">기존 구조에서 서버에 모든 데이터가 저장되었던 것과 달리, IPFS에서는 전 세계 여러 컴퓨터에 분산<br>
+          저장됩니다. <br>
+          데이터를 불러 올때는, 고유값(CID)으로 찾아 다수의 컴퓨터에서 조각조각 나누어 받아와 합칩니다.<br><br>
+          IPFS는 중앙서버의 다운, 데이터 위변조 문제를 해결합니다. </p>
+          <hr>
+          <p style="font-size: 20px; font-weight: bold;">Adoysign에서 문서, 서명 정보는 모두 IPFS, 블록체인 분산되어 저장됩니다.</p>
+          <p style="font-size: 17px; color: gray ;">※ Adoysign 서버가 다운되더라도 문서, 서명 정보는 남아있으며, 위변조 또한 불가능합니다.</p>
+        </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<link href="./css/step.css" rel="stylesheet">
+
+<section id="how" class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>How to use Adoysign ?</h2>
+
+        <!------ Include the above in your HEAD tag ---------->
+        
+        <div class="container my-5">
+     
+        
+          <div class="my-5">
+            <div class="steps" id="stepWizard">
+              <div class="step position-relative">
+                <div class="step-heading position-static" id="step1">
+                  <a class="" role="button" data-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                    <div class="num d-inline-flex text-white align-items-center justify-content-center position-relative rounded-circle bg-primary">1</div>
+                    <div class="pl-3 d-inline-flex title">Step 1 - 회원가입</div>
+                  </a>
+                </div>
+        
+                <div class="line position-absolute"></div>
+        
+                <div id="collapse1" class="pl-5 collapse show" aria-labelledby="step1" data-parent="#stepWizard">
+                  <div class="step-body">
+                    Adoysign을 이용하기 위해서는 EOS계정이 필요합니다.<br>
+                    회원가입시, EOS계정과 퍼블릭키, 프라이빗키를 입력해주세요.<br>
+                    <br><a style="color: rgb(170, 170, 170); font-size: 12px;">※프라이빗키는 계정 인증에만 사용되며, 저장되지 않습니다.</a>
+                    <br><a style="color: rgb(170, 170, 170); font-size: 12px;">EOS : Jungle3 TestNet</a>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="step position-relative">
+                <div class="step-heading position-static" id="step2">
+                  <a class="" role="button" data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                    <div class="num d-inline-flex text-white align-items-center justify-content-center position-relative rounded-circle bg-primary" >2</div>
+                    <div class="pl-3 d-inline-flex title">Step 2 - 문서등록 </div>
+                  </a>
+                </div>
+        
+                <div class="line position-absolute"></div>
+        
+                <div id="collapse2" class="pl-5 collapse" aria-labelledby="step2" data-parent="#stepWizard">
+                  <div class="step-body">
+                    먼저, 서명을 원하는 문서를 등록하세요.<br>
+                    문서를 등록시 제공되는 문서번호와 CID를 상대방에게 제공하면 됩니다. 
+                    <br><a style="color: rgb(170, 170, 170); font-size: 12px;">※내 정보에서 다시 확인할 수 있습니다.</a>
+                    <hr>
+                    예시) <br>
+                    
+                    문서번호 : 200000000000001<br>
+                    CID : QmTX89Rck6Tsnj3UwaL1AxVGMpiWH8h8bwjnDc2po9YVUY
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step position-relative">
+                <div class="step-heading position-static" id="step3">
+                  <a class="" role="button" data-toggle="collapse" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                    <div class="num d-inline-flex text-white align-items-center justify-content-center position-relative rounded-circle bg-primary" >3</div>
+                    <div class="pl-3 d-inline-flex title">Step 3 - Signcode 생성 </div>
+                  </a>
+                </div>
+        
+                <div class="line position-absolute"></div>
+        
+                <div id="collapse3" class="pl-5 collapse" aria-labelledby="step3" data-parent="#stepWizard">
+                  <div class="step-body">
+                    CID를 받은 사용자는 문서를 확인 후 서명을 하려고 합니다.<br>
+                    Adoysign에서는 서명 할 때 Signcode를 필요로 합니다.<br>
+                    Signcode는 일회용 비밀번호 입니다.<br>
+                    발급 받은 Signcode는 타인에게 보여줘서는 안되며, 복구가 불가능하기 때문에,<br>
+                    잘 보관하여야 합니다.
+                    <br><a style="color: rgb(170, 170, 170); font-size: 12px;">※서명 할 때마다 생성하여 사용하는 것을 권장합니다.</a>
+                    <hr>
+                    예시) <br>
+                    번호 : 100000000000001<br>
+                    Signcode : abcde<br>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step position-relative">
+                <div class="step-heading position-static" id="step4">
+                  <a class="" role="button" data-toggle="collapse" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                    <div class="num d-inline-flex text-white align-items-center justify-content-center position-relative rounded-circle bg-primary">4</div>
+                    <div class="pl-3 d-inline-flex title">Step 4 - 서명확인</div>
+                  </a>
+                </div>
+        
+                <div class="line position-absolute"></div>
+        
+                <div id="collapse4" class="pl-5 collapse" aria-labelledby="step4" data-parent="#stepWizard">
+                  <div class="step-body"style="margin-top: 15px;">
+                  문서의 서명을 확인할 차례입니다.<br>
+                  "서명확인" 메뉴에 들어가 <a style="color:green;">문서번호, CID</a> 를 입력하면<br>
+                  해당 문서에 대한 서명을 확인 할 수 있습니다.
+                  <br>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div style="text-align: center;"class="bg-light">
+ <!-- <img src="image/ipfs.png" width="255" height="220">
+  <img src="image/jungle3.png" width="150" height="140" style="margin-left: 30px;margin-bottom: 10px;"/>
+  <img src="image/eos.png" width="280" height="170" style="margin-left: 20px;"/>-->
+</div>
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

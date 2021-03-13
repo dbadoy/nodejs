@@ -1,0 +1,32 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto-random-string": "^3.3.0",
+    "dotenv": "^8.2.0",
+    "eos-encrypt": "^1.0.2",
+    "eosjs": "^16.0.9",
+    "eosjs-ecc": "^4.0.7",
+    "express": "^4.17.1",
+    "ipfs": "^0.52.2",
+    "ipfs-core": "^0.3.0",
+    "ipfs-http-client": "^48.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.0",
+    "nodemailer": "^6.4.16",
+    "random-number-csprng": "^1.0.2",
+    "sha256": "^0.2.0",
+    "twilio": "^3.52.0"
+  }
+}

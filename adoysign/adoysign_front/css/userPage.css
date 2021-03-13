@@ -1,0 +1,162 @@
+#about {
+    background-color: #f8f8f8;
+}
+
+.myData {
+    text-align: left;
+     width: auto; 
+     height: auto; 
+     margin-top: 5px;
+     background-color: white;
+}
+
+.myData a {
+    
+    color:  black;
+}
+
+.mydata_nav a { 
+ color: black;
+
+}
+
+.mydata_nav a:hover{
+     text-decoration: underline; color: black;
+     text-decoration-color: blue;
+ }
+.data_box {
+    width: auto; 
+    height: auto;
+    margin-left: 10px; 
+    margin-top: 20px;
+
+}
+
+.data_box a {
+    width: 200px;
+    height: auto;
+    background-color: white;
+    border-radius: 3px;
+
+}
+
+.myData_hide{
+    display: none;
+    margin-top: 10px;
+
+    background-color: white;
+    border-radius: 3px;
+}
+
+.mydata_nav{
+    
+    display: block;
+    
+}
+.mydata_nav ul {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    list-style: none;
+
+}
+
+.mydata_nav li {
+    width: 120px;
+    border-left: gray;
+    border-right: gray;
+
+    float: left;
+}
+
+.container a {
+    color: black;
+}
+.mydata_nav a:hover{
+    width: 30px;
+    height: 50px;
+}
+
+.newLi {
+    display: inline-block;
+}
+
+.nftBox {
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: gray;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.nftBox p {
+    margin-top: 12px;
+}
+
+.certification{
+    background-color: gainsboro;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+}
+
+.certification a {
+    margin-left: 5px;
+}
+
+.certification button { 
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.certification button:hover{
+    border: solid;
+}
+
+.pt {
+    background-color: gray;
+    border: none; 
+    border-radius: 30px; 
+    position: static;
+
+}
+
+.arrow_box {
+    display: none;
+    position: absolute;
+    width: 180px;
+    padding: 8px;
+    bottom: 50%;
+    left: 25%;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;  
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .arrow_box:after {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 0;
+    height: 0;
+
+    border: solid transparent;
+    border-color: rgba(51, 51, 51, 0);
+    border-bottom-color: #333;
+    border-width: 10px;
+    pointer-events: none;
+    content: " ";
+  }
+  
+.pt:hover + p.arrow_box {
+    display: block;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.4, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Adoysign</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script type="text/javascript" src="./js/register.js"></script>
+</head>
+
+
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="index.html#page-top">Adoysign</a>
+        </div>
+      </nav>
+
+      <script>
+      function toggle(){
+          document.getElementById('regist').style.display = 'inline-block';
+          document.getElementById('gen').style.display = 'none';
+        
+      }
+      </script>
+
+
+      <section id="eos_register" style="margin-bottom: 40px;">
+
+            <div class="col-lg-8 mx-auto">
+              <h2>EOS 계정 생성</h2> <hr>
+              <p class="lead" style="display: inline-block;">계정이름</p> <input style="margin-left: 15px;"><button style="margin-left: 5px; border-radius: 5px; background-color: white;" onclick="checkeosid()">확인</button>
+              <p style="color: gray; font-weight: 8px;">※12자리,소문자 a~z, 숫자1~5 가능</p> <br>
+
+              <p>공개키 : </p>
+              <p>개인키 : </p>
+              
+              
+            </div>
+            <br>
+            <center><button style="text-align: right;background-color: white;"id="gen" onclick="toggle()">키 생성</button></center>
+            <br>
+            <center><button style="text-align: right;background-color: white; display: none;"id="regist">계정 생성</button></center>
+            
+
+
+      </section>
+ 
+  <!-- Footer -->
+  <div style="text-align: center;"class="bg-light">
+ <!-- <img src="image/ipfs.png" width="255" height="220">
+  <img src="image/jungle3.png" width="150" height="140" style="margin-left: 30px;margin-bottom: 10px;"/>
+  <img src="image/eos.png" width="280" height="170" style="margin-left: 20px;"/>-->
+  </div>
+  <footer class="py-5 bg-dark">
+    <div class="container" style="text-align: center;">
+      
+  <br>
+      <p class="m-0 text-center text-white">Copyright &copy; dbadoy4874</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+    if(!localStorage.getItem("id")){
+      window.location.href='index.html';
+    } // 완료시 지우기
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Signature</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script type="text/javascript" src="../js/user.js"></script>
+  <script type="text/javascript" src="../js/doc.js"></script>
+  
+  <link rel="stylesheet" href="../css/main.css">
+ 
+  <!-- Custom styles for this template -->
+  <link href="../css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="../index_login.html">Adoysign</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index_login.html#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index_login.html#service">Blockchain</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index_login.html#ipfs">IPFS</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="../index_login.html#how">How</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="../sign.html" style="color: white;">서명</a>
+        </li>  
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="checkdoc.html">서명확인</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="../userPage.html">내 정보</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigeer" href="#" onclick="logout();">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="bg-primary text-white" style="background-image:url(../image//ab1.PNG)">
+    <div class="container text-center" style="margin-bottom: 5px;">
+      <h1>서명</h1>
+      <p class="lead">문서에 서명</p>
+    </div>
+  </header>
+ 
+
+  <section id="about" style="text-align: center;">
+    <div id="checkdoc">
+      서명할 문서번호 : <input type="number" id="input_docnum" style="width: 160px; border-radius: 5px;">
+      서명할 문서 (CID) : <input type="text" id="input_doc" style="border-radius: 5px"> <button style="border-radius: 5px;" onclick="checkdoc()">확인</button>
+      <p id="my_dochash" style="display: none;"></p>
+    </div>
+    <div id="result" style="display: none;">
+      문서번호 : <p style="display: inline-block;" id="my_docnum">NUM</p>
+      <p>블록체인을 통해 확인된 안전한 문서입니다.</p>
+      <br>
+      　　　　Signcode : <input type="text" id="input_signcode" style="border-radius: 15px;"> <button onclick="checkcode()">확인</button>
+      　　 　<br><div style="display: none; margin-top: 5px;" id="signnum_div">번호　  : <p id= "result_signnum"></p></div>
+      <hr>
+      프라이빗키 : <input type="password" id="input_privatekey" style="border-radius: 15px; margin-right: 55px;"> 
+      <br><br>
+      <button onclick="signature()" style="border-radius: 5px;">서명</button>
+    </div>
+    
+
+  </section>
+
+
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="../js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
